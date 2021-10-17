@@ -6,26 +6,26 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {
+    "@mikey-pro/style-guide": "^1.5.8"
+  },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chiefmikey/scripts.git"
   },
-  "keywords": [
-    "scripts"
-  ],
+  "homepage": "https://github.com/chiefmikey/scripts#readme",
   "author": "me",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/chiefmikey/scripts/issues"
   },
-  "homepage": "https://github.com/chiefmikey/scripts#readme",
-  "devDependencies": {
-    "@mikey-pro/style-guide": "^1.5.8"
-  },
-    "eslintConfig": {
+  "keywords": [
+    "scripts"
+  ],
+  "prettier": "@mikey-pro/prettier-config",
+  "eslintConfig": {
     "extends": "@mikey-pro/eslint-config"
   },
-  "prettier": "@mikey-pro/prettier-config",
   "stylelint": {
     "extends": "@mikey-pro/stylelint-config"
   }
