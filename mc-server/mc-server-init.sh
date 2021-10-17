@@ -13,11 +13,11 @@ sudo touch ~/$INSTANCE_ALREADY_STARTED
     sudo wget -O ~/server.properties https://raw.githubusercontent.com/chiefmikey/scripts/main/mc-server/server.properties
     sudo wget -O ~/whitelist.json https://github.com/chiefmikey/scripts/blob/main/mc-server/whitelist.json
     sudo wget -O ~/permissions.json https://github.com/chiefmikey/scripts/blob/main/mc-server/permissions.json
-    LD_LIBRARY_PATH=. ./bedrock_server
+    LD_LIBRARY_PATH=. sudo ./bedrock_server
 else
   echo "-- Not first instance startup --"
     sudo wget -O ~/server.properties https://raw.githubusercontent.com/chiefmikey/scripts/main/mc-server/server.properties
     sudo wget -O ~/whitelist.json https://github.com/chiefmikey/scripts/blob/main/mc-server/whitelist.json
     sudo wget -O ~/permissions.json https://github.com/chiefmikey/scripts/blob/main/mc-server/permissions.json
-    LD_LIBRARY_PATH=. ./bedrock_server
+    LD_LIBRARY_PATH=. sudo ./bedrock_server
 fi
