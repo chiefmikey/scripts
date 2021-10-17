@@ -22,9 +22,9 @@ sudo touch ~/$INSTANCE_ALREADY_STARTED
       }" \
     >> ~/coredns/Corefile
     sudo chmod +x ~/coredns/coredns
-    sudo ~/coredns/coredns
+    screen -S coredns -dm sudo ~/coredns/coredns
 else
   echo "-- Not first instance startup --"
     sudo yum update -y
-    sudo ~/coredns/coredns
+    screen -S coredns -dm sudo ~/coredns/coredns
 fi
