@@ -17,7 +17,7 @@ sudo touch ~/$INSTANCE_ALREADY_STARTED
     make
     sudo echo \
       ".:53 {
-        rewrite name exact mco.lbsg.net http://chaletlejar.com
+        rewrite name exact mco.lbsg.net chaletlejar.com
         forward . 1.1.1.1:53
       }" \
     >> ~/coredns/Corefile
@@ -25,5 +25,6 @@ sudo touch ~/$INSTANCE_ALREADY_STARTED
     sudo ~/coredns/coredns
 else
   echo "-- Not first instance startup --"
+    sudo yum update -y
     sudo ~/coredns/coredns
 fi
