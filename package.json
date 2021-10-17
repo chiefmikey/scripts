@@ -18,5 +18,15 @@
   "bugs": {
     "url": "https://github.com/chiefmikey/scripts/issues"
   },
-  "homepage": "https://github.com/chiefmikey/scripts#readme"
+  "homepage": "https://github.com/chiefmikey/scripts#readme",
+  "devDependencies": {
+    "@mikey-pro/style-guide": "^1.5.8"
+  },
+    "eslintConfig": {
+    "extends": "@mikey-pro/eslint-config"
+  },
+  "prettier": "@mikey-pro/prettier-config",
+  "stylelint": {
+    "extends": "@mikey-pro/stylelint-config"
+  }
 }
