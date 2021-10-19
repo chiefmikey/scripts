@@ -1,3 +1,3 @@
 # **Scripts**
 
-_Monorepo of scripts for various tasks_
+_Monorepo of scripts for various needs_
