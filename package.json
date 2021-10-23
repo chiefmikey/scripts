@@ -6,9 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "@mikey-pro/style-guide": "^1.5.8"
-  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -28,5 +25,8 @@
   },
   "stylelint": {
     "extends": "@mikey-pro/stylelint-config"
+  },
+  "devDependencies": {
+    "@mikey-pro/style-guide": "^1.5.12"
   }
 }
