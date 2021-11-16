@@ -5,17 +5,19 @@ _Install and run CodeDeploy agent on an AWS EC2 instance_
 ## Ubuntu
 
 ```sh
-sudo apt install -y wget
+#!/bin/bash
+apt install -y wget
 wget https://raw.githubusercontent.com/chiefmikey/scripts/main/codedeploy-ec2/codedeploy-ec2-ubuntu.sh
-sudo chmod +x ./codedeploy-ec2-ubuntu.sh
-sudo ./codedeploy-ec2-ubuntu.sh
+chmod +x ./codedeploy-ec2-ubuntu.sh
+./codedeploy-ec2-ubuntu.sh
 ```
 
 ## Linux
 
 ```sh
-sudo yum install -y wget
+#!/bin/bash
+yum install -y wget
 wget https://raw.githubusercontent.com/chiefmikey/scripts/main/codedeploy-ec2/codedeploy-ec2-linux.sh
-sudo chmod +x ./codedeploy-ec2-linux.sh
-sudo ./codedeploy-ec2-linux.sh
+chmod +x ./codedeploy-ec2-linux.sh
+./codedeploy-ec2-linux.sh
 ```
