@@ -1,4 +1,4 @@
-<center>
+<div align=center>
 
 # **Scripts**
 
@@ -28,4 +28,4 @@
   </tbody>
 </table>
 
-</center>
+</div>
