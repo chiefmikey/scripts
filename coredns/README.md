@@ -1,6 +1,6 @@
 # CodeDeploy
 
-_Install and run CodeDeploy agent_
+_Install configure and run [CoreDNS](https://github.com/coredns/coredns)_
 
 ## Amazon Linux 2
 
