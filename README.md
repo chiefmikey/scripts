@@ -1,6 +1,6 @@
 <div align=center>
 
-# **Scripts**
+# **Shell Scripts**
 
 <table>
   <thead>
