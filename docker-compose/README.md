@@ -1,6 +1,6 @@
 # Docker Compose
 
-_Install and run [Docker Compose](https://github.com/coredns/coredns)_
+_Install and run [Docker Compose](https://docs.docker.com/compose/)_
 
 ## Amazon Linux 2
 
