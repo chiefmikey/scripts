@@ -6,18 +6,18 @@ _Install and run [CodeDeploy](https://aws.amazon.com/codedeploy/) agent_
 
 ```sh
 #!/bin/bash
-apt install -y wget
-wget https://raw.githubusercontent.com/chiefmikey/scripts/main/codedeploy/codedeploy-ubuntu.sh
-chmod +x ./codedeploy-ubuntu.sh
-./codedeploy-ubuntu.sh
+sudo apt install -y wget
+sudo wget -O ~/codedeploy-ubuntu.sh https://raw.githubusercontent.com/chiefmikey/scripts/main/codedeploy/codedeploy-ubuntu.sh
+sudo chmod +x ~/codedeploy-ubuntu.sh
+sudo ~/codedeploy-ubuntu.sh
 ```
 
 ## Amazon Linux 2
 
 ```sh
 #!/bin/bash
-yum install -y wget
-wget https://raw.githubusercontent.com/chiefmikey/scripts/main/codedeploy/codedeploy-linux.sh
-chmod +x ./codedeploy-linux.sh
-./codedeploy-linux.sh
+sudo yum install -y wget
+sudo wget -O ~/codedeploy-al2.sh https://raw.githubusercontent.com/chiefmikey/scripts/main/codedeploy/codedeploy-al2.sh
+sudo chmod +x ~/codedeploy-al2.sh
+sudo ~/codedeploy-al2.sh
 ```

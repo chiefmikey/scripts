@@ -1,4 +1,5 @@
 #!/bin/bash
+
 cd /home/ubuntu
 apt update -y
 apt upgrade -y
