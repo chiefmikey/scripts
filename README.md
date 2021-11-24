@@ -1,3 +1,5 @@
+<center>
+
 # **Scripts**
 
 <table>
@@ -25,3 +27,5 @@
     </tr>
   </tbody>
 </table>
+
+</center>
