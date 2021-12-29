@@ -1,8 +1,8 @@
 <div align=center>
 
-![Tales from the Script](tales-from-the-script.png)
-
 # **Tales from the Script**
+
+![Tales from the Script](tales-from-the-script.png)
 
 <table>
   <thead>
