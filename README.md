@@ -18,8 +18,8 @@
       <td valign="top">Install configure and run CoreDNS</td>
     </tr>
     <tr>
-      <td valign="top">Docker Compose</td>
-      <td valign="top">Install and run Docker Compose</td>
+      <td valign="top">Docker</td>
+      <td valign="top">Install and run Docker or Compose</td>
     </tr>
     <tr>
       <td valign="top">Git Auth</td>
