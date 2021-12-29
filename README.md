@@ -5,11 +5,6 @@
 ![Tales from the Script](tales-from-the-script.png)
 
 <table>
-  <thead>
-    <tr>
-      <th colspan="2">Scripts for various needs</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
       <td valign="top">CodeDeploy</td>
