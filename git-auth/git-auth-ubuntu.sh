@@ -3,7 +3,7 @@
 cd /home/ubuntu
 apt update -y
 apt upgrade -y
-apt install -y wget zip unzip git jq awscli curl
+apt install -y git jq awscli
 pw=$(aws secretsmanager --region us-east-2 get-secret-value --secret-id git-auth | jq -r ".SecretString" | jq -r ".git-auth")
 sleep 10
 git init
