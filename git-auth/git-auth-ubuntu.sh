@@ -9,6 +9,6 @@ sleep 10
 git init
 git config user.name chiefmikey
 git config user.email wolfemikl@gmail.com
-git remote add origin https://chiefmikey:${pw}@github.com/chiefmikey/scripts.git
+git remote add origin https://chiefmikey:${pw}@github.com/chiefmikey/tales-from-the-script.git
 git fetch origin main
 git checkout main
