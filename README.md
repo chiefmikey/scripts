@@ -1,6 +1,8 @@
 <div align=center>
 
-# **Shell Scripts**
+![Tales from the Script](tales-from-the-script.png)
+
+# **Tales from the Script**
 
 <table>
   <thead>
