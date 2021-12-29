@@ -1,6 +1,5 @@
 sudo yum update -y
-sudo yum install -y git
-sudo yum install -y wget
+sudo yum install -y git wget
 mkdir -p /home/ec2-user/.docker/cli-plugins/
 wget -O /home/ec2-user/.docker/cli-plugins/docker-compose https://github.com/docker/compose/releases/download/v2.1.1/docker-compose-linux-x86_64
 sudo chmod +x /home/ec2-user/.docker/cli-plugins/docker-compose
