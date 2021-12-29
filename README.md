@@ -19,7 +19,7 @@
       <td valign="top">Install and run Docker or Compose</td>
     </tr>
     <tr>
-      <td valign="top">Git Auth</td>
+      <td valign="top">Git</td>
       <td valign="top">Install and authenticate Git</td>
     </tr>
   </tbody>
