@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@mikey-pro/style-guide": "^2.3.0"
+    "@mikey-pro/style-guide": "^3.1.9"
   },
   "license": "MIT",
   "repository": {
