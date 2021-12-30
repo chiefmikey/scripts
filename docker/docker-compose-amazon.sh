@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo yum update -y
 sudo yum install -y git wget
 mkdir -p /home/ec2-user/.docker/cli-plugins/
