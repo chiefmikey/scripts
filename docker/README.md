@@ -10,6 +10,8 @@ sudo chmod +x ~/docker-amazon.sh
 sudo ~/docker-amazon.sh
 ```
 
+# Docker Compose
+
 _Install and run [Docker Compose](https://docs.docker.com/compose/)_
 
 ```sh
