@@ -2,7 +2,7 @@
 
 # **Tales from the Script**
 
-A collection of scripts for various needs
+Collection of scripts for various needs
 
 <img
     width="333px"
