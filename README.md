@@ -2,8 +2,6 @@
 
 # **Tales from the Script**
 
-Custom scripts for various needs
-
 <img
     width="333px"
     src="tales-from-the-script.jpg"
