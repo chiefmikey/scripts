@@ -19,7 +19,7 @@ cd /home/ec2-user/coredns
 su -s /bin/bash -c 'make' ec2-user
 echo \
   ".:53 {
-    rewrite name exact source.address.com redirect.address.com
+    rewrite name exact ${source} ${redirect}
     forward . 8.8.8.8:53
     bufsize 1232
     errors
