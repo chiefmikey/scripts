@@ -1,26 +1,28 @@
 {
-  "name": "scripts",
+  "name": "tales-from-the-script",
   "version": "1.0.0",
-  "description": "scripts",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Coffin for collecting custom scripts",
   "devDependencies": {
-    "@mikey-pro/style-guide": "^4.9.0"
+    "@mikey-pro/style-guide": "^4.9.11"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chiefmikey/scripts.git"
+    "url": "git+https://github.com/chiefmikey/tales-from-the-script.git"
   },
-  "homepage": "https://github.com/chiefmikey/scripts#readme",
-  "author": "me",
+  "homepage": "https://github.com/chiefmikey/tales-from-the-script#readme",
+  "author": "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)",
   "bugs": {
-    "url": "https://github.com/chiefmikey/scripts/issues"
+    "url": "https://github.com/chiefmikey/tales-from-the-script/issues"
   },
   "keywords": [
-    "scripts"
+    "scripts",
+    "script",
+    "shell",
+    "bash"
+  ],
+    "contributors": [
+    "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
   ],
   "prettier": "@mikey-pro/prettier-config",
   "eslintConfig": {
