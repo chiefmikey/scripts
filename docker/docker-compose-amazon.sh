@@ -7,7 +7,7 @@ wget -O /home/ec2-user/.docker/cli-plugins/docker-compose https://github.com/doc
 chmod +x /home/ec2-user/.docker/cli-plugins/docker-compose
 ln -s /home/ec2-user/.docker/cli-plugins/docker-compose /usr/bin/docker-compose
 amazon-linux-extras install docker
-usermod -a -G docker "$USER"
+usermod -a -G docker ec2-user
 systemctl enable --now docker
 chkconfig docker on
 chmod 666 /var/run/docker.sock
