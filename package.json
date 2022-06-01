@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Coffin for collecting custom scripts",
   "devDependencies": {
-    "@mikey-pro/style-guide": "^4.13.1"
+    "@mikey-pro/style-guide": "^4.14.0"
   },
   "license": "MIT",
   "repository": {
