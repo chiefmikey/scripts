@@ -1,16 +1,13 @@
-#!/bin/bash
+#!/bin/bash -v
 
+set -x
 cd /home/ec2-user
-yum update -y
+yum update -y && yum upgrade -y
 yum install -y wget unzip git
 rm -rf /usr/local/go
-wget -O /home/ec2-user/go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+wget -O /home/ec2-user/go.tar.gz https://go.dev/dl/go1.18.3.linux-amd64.tar.gz
 tar -C /usr/local -xzf /home/ec2-user/go.tar.gz
 rm /home/ec2-user/go.tar.gz
-mkdir /home/ec2-user/go
-chown -R ec2-user:root /home/ec2-user/go
-echo "export GOPATH=/home/ec2-user/go" >> /home/ec2-user/.bashrc
-echo "export PATH=$PATH:$GOPATH/bin" >> /home/ec2-user/.bashrc
 echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile
 source /etc/profile
 git clone https://github.com/coredns/coredns
@@ -29,4 +26,4 @@ echo \
   }" \
 >> /home/ec2-user/coredns/Corefile
 chmod +x /home/ec2-user/coredns/coredns
-su -s /bin/bash -c 'screen -S coredns -dm /home/ec2-user/coredns/coredns' root
+screen -S coredns -dm /home/ec2-user/coredns/coredns
