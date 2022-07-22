@@ -1,7 +1,7 @@
 {
   "name": "tales-from-the-script",
   "version": "1.0.0",
-  "description": "Coffin for collecting custom scripts",
+  "description": "A coffin full of custom scripts",
   "devDependencies": {
     "@mikey-pro/style-guide": "^4.145.0"
   },
@@ -15,15 +15,8 @@
   "bugs": {
     "url": "https://github.com/chiefmikey/tales-from-the-script/issues"
   },
-  "keywords": [
-    "scripts",
-    "script",
-    "shell",
-    "bash"
-  ],
-    "contributors": [
-    "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
-  ],
+  "keywords": ["scripts", "script", "shell", "bash"],
+  "contributors": ["Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"],
   "prettier": "@mikey-pro/prettier-config",
   "eslintConfig": {
     "extends": "@mikey-pro/eslint-config"
