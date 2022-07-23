@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 echo "+ npm global update"
 for package in $(npm ls -g --json | jq '.dependencies | keys' | awk -F'"' '{print $2}'); do

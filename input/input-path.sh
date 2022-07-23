@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 while getopts 'd:n:' OPTION; do
   case $OPTION in

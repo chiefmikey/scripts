@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 yum update -y
 yum install -y ruby

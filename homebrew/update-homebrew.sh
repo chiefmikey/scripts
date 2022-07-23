@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 brew autoupdate delete
 echo "+ brew update" && brew update
