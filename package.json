@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A coffin full of custom scripts",
   "devDependencies": {
-    "@mikey-pro/style-guide": "^4.146.0",
     "eslint": "^8.29.0",
+    "mikey-pro": "^5.0.7",
     "prettier": "^2.8.1"
   },
   "license": "MIT",
@@ -17,20 +17,10 @@
   "bugs": {
     "url": "https://github.com/chiefmikey/tales-from-the-script/issues"
   },
-  "keywords": [
-    "scripts",
-    "script",
-    "shell",
-    "bash"
-  ],
-  "contributors": [
-    "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
-  ],
+  "keywords": ["scripts", "script", "shell", "bash"],
+  "contributors": ["Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"],
   "prettier": "@mikey-pro/prettier-config",
   "eslintConfig": {
     "extends": "@mikey-pro/eslint-config"
-  },
-  "stylelint": {
-    "extends": "@mikey-pro/stylelint-config"
   }
 }
