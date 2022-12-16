@@ -1,0 +1,1 @@
+gh gist delete {<id> | <url>}
