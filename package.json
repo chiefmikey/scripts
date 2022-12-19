@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A coffin full of custom scripts",
   "devDependencies": {
-    "eslint": "^8.29.0",
+    "eslint": "^8.30.0",
     "mikey-pro": "^5.0.7",
     "prettier": "^2.8.1"
   },
