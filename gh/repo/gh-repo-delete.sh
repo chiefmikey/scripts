@@ -1,1 +1,1 @@
-gh repo delete ${DIR_NAME} --confirm
+gh repo delete "${DIR_NAME}" --confirm

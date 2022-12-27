@@ -5,6 +5,10 @@ while getopts 'y' OPTION; do
     y)
       export Y1="y"
       ;;
+    *)
+      echo "Invalid option"
+      exit 1
+      ;;
   esac
 done
 shift "$((OPTIND-1))"
@@ -12,7 +16,7 @@ shift "$((OPTIND-1))"
 echo "+ Git Remote"
 
 export DEFAULT_ROOT="${HOME}/dropbox/dev/scripts"
-source ${SCRIPT_DIR}/input-root/input-root.sh
+"${SCRIPT_DIR}"/input-root/input-root.sh
 
 while [ -z "${DEPTH}" ]; do
   echo "Depth: ([integer], max)"
@@ -113,11 +117,11 @@ export_vars () {
 if [ "${CONFIRM}" = "y" ] || [ "${CONFIRM}" = "yes" ]; then
   export_vars
   if [ "${ACTION}" = "create" ]; then
-    find "${ROOT}" -type d -name ".git"${DEPTH} -exec ${SCRIPT_DIR}/gh-repo/gh-repo-create.sh {} \;
+    find "${ROOT}" -type d -name ".git""${DEPTH}" -exec "${SCRIPT_DIR}"/gh-repo/gh-repo-create.sh {} \;
   elif [ "${ACTION}" = "rename" ]; then
-    find "${ROOT}" -type d -name ".git"${DEPTH} -exec ${SCRIPT_DIR}/git-remote/git-remote-rename.sh {} \;
+    find "${ROOT}" -type d -name ".git""${DEPTH}" -exec "${SCRIPT_DIR}"/git-remote/git-remote-rename.sh {} \;
   elif [ "${ACTION}" = "set-url" ]; then
-    find "${ROOT}" -type d -name ".git"${DEPTH} -exec ${SCRIPT_DIR}/git-remote/git-remote-set-url.sh {} \;
+    find "${ROOT}" -type d -name ".git""${DEPTH}" -exec "${SCRIPT_DIR}"/git-remote/git-remote-set-url.sh {} \;
   fi
 else
   echo "Operation cancelled"

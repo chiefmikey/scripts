@@ -23,19 +23,19 @@ echo '
 Host *
   AddKeysToAgent yes
   UseKeychain yes
-  IdentityFile ~/.ssh/gh-sudo
+  IdentityFile ~/.ssh/id_ed25519
 ' >> ~/.ssh/config
 
 # add to keychain
-ssh-add --apple-use-keychain ~/.ssh/gh-sudo
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 
 # if no password
-ssh-add ~/.ssh/gh-sudo
+ssh-add ~/.ssh/id_ed25519
 
 # add key manually to github
 
 # add key with gh cli
-gh ssh-key add ~/.ssh/gh-sudo.pub --title "gh-sudo"
+gh ssh-key add ~/.ssh/id_ed25519.pub --title "id_ed25519"
 
 # gh cli confirmation for ssh
 ssh -T git@github.com
