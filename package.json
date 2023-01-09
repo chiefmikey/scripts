@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A coffin full of custom scripts",
   "devDependencies": {
-    "mikey-pro": "^6.2.1"
+    "mikey-pro": "^6.3.0"
   },
   "license": "MIT",
   "repository": {
