@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "+ dock sort"
-cd ${HOME}
+cd "${HOME}" || exit
 
 defaults delete com.apple.dock persistent-apps
 defaults delete com.apple.dock recent-apps
@@ -23,7 +23,9 @@ dock_item() {
   ', "$1"
 }
 
-defaults write com.apple.dock persistent-apps -array \
+if [ "$(whoami)" = "mwolfe" ]; then
+  defaults write com.apple.dock persistent-apps -array \
+  "$(dock_item /Applications/Brave\ Browser.app)" \
   "$(dock_item /Applications/Google\ Chrome.app)" \
   "$(dock_item /System/Applications/Messages.app)" \
   "$(dock_item /Applications/Spotify.app)" \
@@ -39,5 +41,21 @@ defaults write com.apple.dock persistent-apps -array \
   "$(dock_item /Applications/Microsoft\ Outlook.app)" \
   "$(dock_item /Applications/Microsoft\ Teams.app)" \
   "$(dock_item /Applications/Notion.app)"
+else
+  defaults write com.apple.dock persistent-apps -array \
+    "$(dock_item /Applications/Brave\ Browser.app)" \
+    "$(dock_item /Applications/Google\ Chrome.app)" \
+    "$(dock_item /System/Applications/Messages.app)" \
+    "$(dock_item /Applications/Spotify.app)" \
+    "$(dock_item /Applications/Apogee\ Control.app)" \
+    "$(dock_item /Applications/Logic\ Pro.app)" \
+    "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
+    "$(dock_item /Applications/iTerm.app)" \
+    "$(dock_item /Applications/Postman.app)" \
+    "$(dock_item /Applications/Docker.app)" \
+    "$(dock_item /Applications/IVPN.app)" \
+    "$(dock_item /Applications/Parallels\ Desktop.app)" \
+    "$(dock_item /Applications/Notion.app)"
+fi
 
 killall Dock
