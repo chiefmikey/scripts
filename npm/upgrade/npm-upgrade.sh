@@ -1,21 +1,26 @@
 #!/bin/sh
 
-echo "+ npm global upgrade"
+echo "+ npm Global Upgrade"
 cd "${HOME}" || exit
 
 export STATUS=0
 for package in $(npm ls -g --json | jq '.dependencies | keys' | awk -F'"' '{print $2}'); do
-  v1="$(${package} --version)"
+  # handle scoped packages
+  subPackage="${package}"
+  if [ -z "${subPackage##*/*}" ]; then
+    subPackage="${package##*/}"
+  fi
+
+  v1="$(${subPackage} --version)"
   export v1
+  # add overrides here, useful for betas etc
   # if [ "${package}" = "npm" ]; then
   #   package="npm@next-9"
   # fi
+
   if [ "$(npm view "${package}" version)" != "${v1}" ]; then
      npm i -gs "${package}"
-     if [ "${package}" = "npm" ]; then
-       package="npm"
-     fi
-     v2="$(${package} --version)"
+     v2="$(${subPackage} --version)"
      export v2
      echo "${package} (${v1} -> ${v2})"
      export STATUS=1
