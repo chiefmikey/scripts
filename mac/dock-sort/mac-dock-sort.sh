@@ -42,13 +42,20 @@ else
     "$(dock_item /Applications/Google\ Chrome.app)" \
     "$(dock_item /System/Applications/Messages.app)" \
     "$(dock_item /Applications/Spotify.app)" \
+    "$(dock_item /System/Applications/Music.app)" \
     "$(dock_item /Applications/Apogee\ Control.app)" \
-    "$(dock_item /Applications/Logic\ Pro.app)" \
+    "$(dock_item /Applications/Logic\ Pro\ X.app)" \
+    "$(dock_item /Applications/Reason\ Suite\ 11.app)" \
+    "$(dock_item /Applications/Final\ Cut\ Pro.app)" \
+    "$(dock_item /Applications/Motion.app)" \
+    "$(dock_item /Applications/Affinity\ Photo\ 2.app)" \
+    "$(dock_item /Applications/Affinity\ Designer\ 2.app)" \
+    "$(dock_item /System/Applications/Photos.app)" \
     "$(dock_item /Applications/iTerm.app)" \
     "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
+    "$(dock_item /Applications/Visual\ Studio\ Code\ -\ Insiders.app)" \
     "$(dock_item /Applications/Docker.app)" \
     "$(dock_item /Applications/Postman.app)" \
-    "$(dock_item /Applications/IVPN.app)" \
     "$(dock_item /Applications/Parallels\ Desktop.app)" \
     "$(dock_item /Applications/Notion.app)"
 fi
