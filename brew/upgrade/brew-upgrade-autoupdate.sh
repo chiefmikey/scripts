@@ -1,3 +1,3 @@
 #!/bin/sh
 
-brew autoupdate start ${1} --upgrade --cleanup --greedy --immediate
+brew autoupdate start "${1}" --upgrade --cleanup --greedy --immediate

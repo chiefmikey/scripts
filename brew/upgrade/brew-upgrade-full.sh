@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export SUDO_ASKPASS=${SCRIPT_DIR}/mac-sudo-askpass/mac-sudo-askpass.sh
-cd ${HOME}
+export SUDO_ASKPASS="${SCRIPT_DIR}"/mac/sudo-askpass/mac-sudo-askpass.sh
+cd "${HOME}" || exit
 
 echo "+ Brew Update"
 brew update
