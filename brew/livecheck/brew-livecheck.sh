@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "+ brew livecheck"
-cd ${HOME}
+cd "${HOME}" || exit
 
 FLAG_LIST="balskdt"
 while getopts 'balskdt:' OPTION; do
@@ -32,8 +32,8 @@ while getopts 'balskdt:' OPTION; do
       ;;
     *)
       BAD_FLAGS=
-      for flag in ${@}; do
-        [ -n "${FLAG_LIST##*${flag##*-}*}" ] && BAD_FLAGS="${BAD_FLAGS} ${flag}"
+      for flag in "${@}"; do
+        [ -n "${FLAG_LIST##*"${flag##*-}"*}" ] && BAD_FLAGS="${BAD_FLAGS} ${flag}"
       done
       echo "Invalid flags:${BAD_FLAGS}"
       exit 1
@@ -43,34 +43,34 @@ done
 shift "$((OPTIND-1))"
 
 flag_limit_zero () {
-  local COUNT=0
-  local INVALID_FLAGS=
+  COUNT=0
+  INVALID_FLAGS=
   for flag in ${@}; do
-    local COUNT=$((COUNT + 1))
+    COUNT=$((COUNT + 1))
     INVALID_FLAGS="${INVALID_FLAGS} ${flag} "
   done
   [ ${COUNT} -gt 0 ] && echo "Invalid flags:${INVALID_FLAGS}" && exit 1
 }
 
 flag_limit_one () {
-  local COUNT=0
+  COUNT=0
   for flag in ${@}; do
-    local COUNT=$((COUNT + 1))
+    COUNT=$((COUNT + 1))
   done
   [ ${COUNT} -gt 1 ] && echo "Invalid flags:${INVALID_FLAGS}" && exit 1
 }
 
-[ "${LC_KILL}" = "y" ] && flag_limit_zero ${LC_BUMP} ${LC_DELAY}
-[ "${LC_STATUS}" = "y" ] && flag_limit_zero ${LC_BUMP} ${LC_DELAY}
-flag_limit_one ${LC_ALL} ${LC_LOCAL} ${LC_STATUS} ${LC_KILL}
+[ "${LC_KILL}" = "y" ] && flag_limit_zero "${LC_BUMP}" "${LC_DELAY}"
+[ "${LC_STATUS}" = "y" ] && flag_limit_zero "${LC_BUMP}" "${LC_DELAY}"
+flag_limit_one "${LC_ALL}" "${LC_LOCAL}" "${LC_STATUS}" "${LC_KILL}"
 
 [ "${LC_KILL}" != "y" ] && [ "${LC_STATUS}" != "y" ] && LC_RUNNING=$(screen -ls | grep livecheck | awk '{print $1}')
 
 brew_livecheck () {
-  [ "${LC_ALL}" = "y" ] && ${LC_SCREEN} ${SCRIPT_DIR}/brew-livecheck/brew-livecheck-all.sh ${LC_BUMP} ${LC_DELAY}
-  [ "${LC_LOCAL}" = "y" ] && ${LC_SCREEN} ${SCRIPT_DIR}/brew-livecheck/brew-livecheck-local.sh ${LC_BUMP} ${LC_DELAY}
-  [ "${LC_STATUS}" = "y" ] && ${SCRIPT_DIR}/brew-livecheck/brew-livecheck-status.sh
-  [ "${LC_KILL}" = "y" ] && ${SCRIPT_DIR}/brew-livecheck/brew-livecheck-kill.sh
+  [ "${LC_ALL}" = "y" ] && ${LC_SCREEN} "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-all.sh "${LC_BUMP}" "${LC_DELAY}"
+  [ "${LC_LOCAL}" = "y" ] && ${LC_SCREEN} "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-local.sh "${LC_BUMP}" "${LC_DELAY}"
+  [ "${LC_STATUS}" = "y" ] && "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-status.sh
+  [ "${LC_KILL}" = "y" ] && "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-kill.sh
 }
 
 if [ -n "${LC_RUNNING}" ]; then
@@ -78,7 +78,7 @@ if [ -n "${LC_RUNNING}" ]; then
   echo "Kill livecheck: (y/n)"
   read LC_REPLACE
   if [ "${LC_REPLACE}" = "y" ] || [ "${LC_REPLACE}" = "yes" ]; then
-    ${SCRIPT_DIR}/brew-livecheck/brew-livecheck-kill.sh
+    "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-kill.sh
     brew_livecheck
   fi
   if [ "${LC_REPLACE}" = "n" ] || [ "${LC_REPLACE}" = "no" ]; then
