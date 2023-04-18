@@ -30,6 +30,22 @@ health_check () {
   "${SCRIPT_DIR}"/input/health-check/input-health-check.sh
 }
 
+verify_logs () {
+  LOG_DIR="${SCRIPT_DIR}/brew/livecheck/log"
+  LOG_LOG="${LOG_DIR}/brew-livecheck-log.log"
+  LOG_ERROR="${LOG_DIR}/brew-livecheck-error.log"
+  LOG_HEALTH="${LOG_DIR}/brew-livecheck-health.log"
+  LOG_HISTORY="${LOG_DIR}/brew-livecheck-history.log"
+  LOG_UPGRADE="${LOG_DIR}/brew-livecheck-upgrade.log"
+  LOG_FILES="${LOG_LOG} ${LOG_ERROR} ${LOG_HEALTH} ${LOG_HISTORY} ${LOG_UPGRADE}"
+
+  for file in ${LOG_FILES}; do
+    if [ ! -f "${file}" ]; then
+      touch "${file}"
+    fi
+  done
+}
+
 killer () {
   COUNT=0
   while [ "${COUNT}" -lt 5 ]; do
@@ -107,7 +123,6 @@ CASK_DRIVERS=homebrew/cask-drivers
 CASK_VERSIONS=homebrew/cask-versions
 BREW_CASK=homebrew/cask
 BREW_CORE=homebrew/core
-DEFAULT_SLEEP=60
 COUNTER=0
 TOTAL_COUNT=0
 TYPE=
@@ -133,6 +148,7 @@ clear_log () {
 }
 
 bump_runner () {
+  verify_logs
   update_currents
   TYPE=${1}
   TAP=${2}
@@ -153,8 +169,8 @@ bump_runner () {
       HEALTH_CHECK=$(health_check)
 
       while [ "${HEALTH_CHECK}" = "disconnected" ]; do
-        echo "Disconnected..."
-        echo "Disconnected: $(write_date)" >> "${SCRIPT_DIR}"/brew/livecheck/log/brew-livecheck-health.log
+        echo "disconnected..."
+        echo "disconnected: $(write_date)" >> "${SCRIPT_DIR}"/brew/livecheck/log/brew-livecheck-health.log
         sleep 60
         HEALTH_CHECK=$(health_check)
       done
