@@ -3,8 +3,8 @@
 echo "+ brew livecheck"
 cd "${HOME}" || exit
 
-FLAG_LIST="baloskdtr"
-while getopts 'baloskdtr:' OPTION; do
+FLAG_LIST="baloskdrt"
+while getopts 'baloskdrt:' OPTION; do
   case ${OPTION} in
     b)
       LC_BUMP="-b"
@@ -28,13 +28,14 @@ while getopts 'baloskdtr:' OPTION; do
       ;;
     d)
       LC_SCREEN="screen -S livecheck -dm"
-      echo + "Detached: livecheck"
-      ;;
-    t)
-      LC_DELAY="-t ${OPTARG}"
+      echo + "detached: livecheck"
       ;;
     r)
       RESUME_SCREEN="y"
+      ;;
+    t)
+      LC_DELAY="-t ${OPTARG}"
+      echo + "delay: ${OPTARG} seconds"
       ;;
     *)
       BAD_FLAGS=
