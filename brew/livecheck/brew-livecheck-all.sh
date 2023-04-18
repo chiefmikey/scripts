@@ -3,6 +3,7 @@
 echo "+ brew livecheck all"
 cd "${HOME}" || exit
 
+FLAG_LIST="bt"
 while getopts 'bt:' OPTION; do
   case $OPTION in
     b)
@@ -10,6 +11,14 @@ while getopts 'bt:' OPTION; do
       ;;
     t)
       LC_DELAY=${OPTARG}
+      ;;
+    *)
+      BAD_FLAGS=
+      for flag in "${@}"; do
+        [ -n "${FLAG_LIST##*"${flag##*-}"*}" ] && BAD_FLAGS="${BAD_FLAGS} ${flag}"
+      done
+      echo "Invalid flags:${BAD_FLAGS}"
+      exit 1
       ;;
   esac
 done
@@ -163,8 +172,6 @@ bump_runner () {
       [ ${COUNTER} -eq "${TOTAL_COUNT}" ] && clear_log
       if [ -n "${LC_DELAY}" ]; then
         sleep "${LC_DELAY}"
-      else
-        sleep ${DEFAULT_SLEEP}
       fi
     fi
   done
