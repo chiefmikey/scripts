@@ -24,12 +24,6 @@ while getopts 'bt:' OPTION; do
 done
 shift "$((OPTIND-1))"
 
-:> "${SCRIPT_DIR}"/brew/livecheck/log/brew-livecheck-history.log
-
-health_check () {
-  "${SCRIPT_DIR}"/input/health-check/input-health-check.sh
-}
-
 verify_logs () {
   LOG_DIR="${SCRIPT_DIR}/brew/livecheck/log"
   LOG_LOG="${LOG_DIR}/brew-livecheck-log.log"
@@ -44,6 +38,13 @@ verify_logs () {
       touch "${file}"
     fi
   done
+}
+
+verify_logs
+:> "${SCRIPT_DIR}"/brew/livecheck/log/brew-livecheck-history.log
+
+health_check () {
+  "${SCRIPT_DIR}"/input/health-check/input-health-check.sh
 }
 
 killer () {
@@ -148,7 +149,6 @@ clear_log () {
 }
 
 bump_runner () {
-  verify_logs
   update_currents
   TYPE=${1}
   TAP=${2}
