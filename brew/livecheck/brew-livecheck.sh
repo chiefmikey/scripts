@@ -82,8 +82,8 @@ brew_livecheck () {
 }
 
 if [ -n "${LC_RUNNING}" ]; then
-  echo "Livecheck is already running"
-  echo "Kill livecheck: (y/n)"
+  echo "livecheck is already running"
+  echo "kill livecheck: (y/n)"
   read LC_REPLACE
   if [ "${LC_REPLACE}" = "y" ] || [ "${LC_REPLACE}" = "yes" ]; then
     "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-kill.sh
