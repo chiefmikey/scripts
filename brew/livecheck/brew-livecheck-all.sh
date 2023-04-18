@@ -33,6 +33,10 @@ verify_logs () {
   LOG_UPGRADE="${LOG_DIR}/brew-livecheck-upgrade.log"
   LOG_FILES="${LOG_LOG} ${LOG_ERROR} ${LOG_HEALTH} ${LOG_HISTORY} ${LOG_UPGRADE}"
 
+  if [ ! -d "${LOG_DIR}" ]; then
+    mkdir "${LOG_DIR}"
+  fi
+
   for file in ${LOG_FILES}; do
     if [ ! -f "${file}" ]; then
       touch "${file}"
