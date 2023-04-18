@@ -187,6 +187,6 @@ while [ "${LC_RUNNING}" = "true" ] && [ "${LC_DONE}" = "false" ]; do
     [ "${CURRENT_TAP}" = "${CASK_FONTS}" ] && bump_runner cask ${CASK_FONTS} "${CURRENT_COUNT}" && CURRENT_TAP=${LINUXBREW_FONTS}
     [ "${CURRENT_TAP}" = "${LINUXBREW_FONTS}" ] && bump_runner formula ${LINUXBREW_FONTS} "${CURRENT_COUNT}" && CURRENT_TAP=${BREW_CORE}
   else
-    bump_runner cask ${CASK_FONTS} "${CURRENT_COUNT}" && CURRENT_TAP=${LINUXBREW_FONTS}
+    bump_runner formula ${BREW_CORE} "${CURRENT_COUNT}" && CURRENT_TAP=${BREW_CASK}
   fi
 done
