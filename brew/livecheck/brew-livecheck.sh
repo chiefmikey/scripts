@@ -3,8 +3,8 @@
 echo "+ brew livecheck"
 cd "${HOME}" || exit
 
-FLAG_LIST="balskdt"
-while getopts 'balskdt:' OPTION; do
+FLAG_LIST="baloskdtr"
+while getopts 'baloskdtr:' OPTION; do
   case ${OPTION} in
     b)
       LC_BUMP="-b"
@@ -16,6 +16,9 @@ while getopts 'balskdt:' OPTION; do
       ;;
     l)
       LC_LOCAL="y"
+      ;;
+    o)
+      LC_LOCAL_SCREEN="y"
       ;;
     s)
       LC_STATUS="y"
@@ -29,6 +32,9 @@ while getopts 'balskdt:' OPTION; do
       ;;
     t)
       LC_DELAY="-t ${OPTARG}"
+      ;;
+    r)
+      RESUME_SCREEN="y"
       ;;
     *)
       BAD_FLAGS=
@@ -69,6 +75,7 @@ flag_limit_one "${LC_ALL}" "${LC_LOCAL}" "${LC_STATUS}" "${LC_KILL}"
 brew_livecheck () {
   [ "${LC_ALL}" = "y" ] && ${LC_SCREEN} "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-all.sh "${LC_BUMP}" "${LC_DELAY}"
   [ "${LC_LOCAL}" = "y" ] && ${LC_SCREEN} "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-local.sh "${LC_BUMP}" "${LC_DELAY}"
+  [ "${LC_LOCAL_SCREEN}" = "y" ] && ${LC_SCREEN} "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-local-screen.sh "${LC_BUMP}" "${LC_DELAY}"
   [ "${LC_STATUS}" = "y" ] && "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-status.sh
   [ "${LC_KILL}" = "y" ] && "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-kill.sh
 }
