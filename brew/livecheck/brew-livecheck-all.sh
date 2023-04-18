@@ -24,27 +24,6 @@ while getopts 'bt:' OPTION; do
 done
 shift "$((OPTIND-1))"
 
-verify_logs () {
-  LOG_DIR="${SCRIPT_DIR}/brew/livecheck/log"
-  LOG_LOG="${LOG_DIR}/brew-livecheck-log.log"
-  LOG_ERROR="${LOG_DIR}/brew-livecheck-error.log"
-  LOG_HEALTH="${LOG_DIR}/brew-livecheck-health.log"
-  LOG_HISTORY="${LOG_DIR}/brew-livecheck-history.log"
-  LOG_UPGRADE="${LOG_DIR}/brew-livecheck-upgrade.log"
-  LOG_FILES="${LOG_LOG} ${LOG_ERROR} ${LOG_HEALTH} ${LOG_HISTORY} ${LOG_UPGRADE}"
-
-  if [ ! -d "${LOG_DIR}" ]; then
-    mkdir "${LOG_DIR}"
-  fi
-
-  for file in ${LOG_FILES}; do
-    if [ ! -f "${file}" ]; then
-      touch "${file}"
-    fi
-  done
-}
-
-verify_logs
 :> "${SCRIPT_DIR}"/brew/livecheck/log/brew-livecheck-history.log
 
 health_check () {

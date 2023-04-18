@@ -3,8 +3,8 @@
 echo "+ brew livecheck"
 cd "${HOME}" || exit
 
-FLAG_LIST="baloskdrt"
-while getopts 'baloskdrt:' OPTION; do
+FLAG_LIST="baloskdrft"
+while getopts 'baloskdrft:' OPTION; do
   case ${OPTION} in
     b)
       LC_BUMP="-b"
@@ -33,6 +33,9 @@ while getopts 'baloskdrt:' OPTION; do
     r)
       RESUME_SCREEN="y"
       ;;
+    f)
+      FORMAT_LOGS="y"
+      ;;
     t)
       LC_DELAY="-t ${OPTARG}"
       echo + "delay: ${OPTARG} seconds"
@@ -48,6 +51,39 @@ while getopts 'baloskdrt:' OPTION; do
   esac
 done
 shift "$((OPTIND-1))"
+
+LOG_DIR="${SCRIPT_DIR}/brew/livecheck/log"
+LOG_LOG="${LOG_DIR}/brew-livecheck-log.log"
+LOG_ERROR="${LOG_DIR}/brew-livecheck-error.log"
+LOG_HEALTH="${LOG_DIR}/brew-livecheck-health.log"
+LOG_HISTORY="${LOG_DIR}/brew-livecheck-history.log"
+LOG_UPGRADE="${LOG_DIR}/brew-livecheck-upgrade.log"
+LOG_FILES="${LOG_LOG} ${LOG_ERROR} ${LOG_HEALTH} ${LOG_HISTORY} ${LOG_UPGRADE}"
+
+format_logs () {
+  for file in ${LOG_FILES}; do
+    echo "" > "${file}"
+  done
+}
+
+if [ "${FORMAT_LOGS}" = "y" ]; then
+  echo + "formatting logs"
+  format_logs
+fi
+
+verify_logs () {
+  if [ ! -d "${LOG_DIR}" ]; then
+    mkdir "${LOG_DIR}"
+  fi
+
+  for file in ${LOG_FILES}; do
+    if [ ! -f "${file}" ]; then
+      touch "${file}"
+    fi
+  done
+}
+
+verify_logs
 
 flag_limit_zero () {
   COUNT=0
