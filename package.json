@@ -5,22 +5,22 @@
   "devDependencies": {
     "mikey-pro": "^6.4.18"
   },
-  "license": "MIT",
+  "homepage": "https://github.com/chiefmikey/tales-from-the-script#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chiefmikey/tales-from-the-script.git"
   },
-  "homepage": "https://github.com/chiefmikey/tales-from-the-script#readme",
-  "author": "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)",
   "bugs": {
     "url": "https://github.com/chiefmikey/tales-from-the-script/issues"
   },
+  "license": "MIT",
   "keywords": [
     "scripts",
     "script",
     "shell",
     "bash"
   ],
+  "author": "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)",
   "contributors": [
     "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
   ],
