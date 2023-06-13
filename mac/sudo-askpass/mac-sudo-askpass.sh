@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
 PW_NAME="SUDO_PASS"
 if [ "$(whoami)" = "mwolfe" ]; then
   PW_ACCOUNT="Wolfe, Mikl"
 else
-  PW_ACCOUNT="Mikl Wolfe"
+  PW_ACCOUNT="Wolfe, Mikl"
 fi
 
 if ! SUDO_PASS=$(security find-generic-password -w -s "${PW_NAME}" -a "${PW_ACCOUNT}"); then
@@ -13,7 +13,7 @@ if ! SUDO_PASS=$(security find-generic-password -w -s "${PW_NAME}" -a "${PW_ACCO
   if [ "${?##*something*}" ]; then
     echo "No password: ${PW_NAME} found for user: ${PW_ACCOUNT}"
     echo "Password:"
-    read SUDO_PASS
+    read -r SUDO_PASS
 
     while \
     [ "${CONFIRM}" != "y" ] && \
@@ -24,7 +24,7 @@ if ! SUDO_PASS=$(security find-generic-password -w -s "${PW_NAME}" -a "${PW_ACCO
       echo "Username: ${PW_ACCOUNT}"
       echo "Password: ${SUDO_PASS//?/*}"
       echo "Confirm: (y/n)"
-      read CONFIRM
+      read -r CONFIRM
     done
 
     if [ "${CONFIRM}" = "y" ] || [ "${CONFIRM}" = "yes" ]; then
