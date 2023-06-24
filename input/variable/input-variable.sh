@@ -2,7 +2,7 @@
 
 while [ -z "${}" ]; do
   echo "${}: (${})"
-  read ${}
+  read "${}"
 done
 
-echo ${}
+echo "${}"

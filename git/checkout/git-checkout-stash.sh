@@ -27,6 +27,6 @@ done
 
 if [ "$POP_IT" = "y" ] || [ "$POP_IT" = "yes" ] ; then
   STASH=$(git stash list | awk -F':' '{ print $1":"$3 }' | grep "checkout" | awk -F':' '{ print $1 }')
-  echo $STASH
-  git stash pop ${STASH}
+  echo "$STASH"
+  git stash pop "${STASH}"
 fi
