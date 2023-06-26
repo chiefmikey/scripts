@@ -27,11 +27,11 @@ if [ "$(whoami)" = "mwolfe" ]; then
   defaults write com.apple.dock persistent-apps -array \
   "$(dock_item /Applications/Brave\ Browser.app)" \
   "$(dock_item /Applications/Google\ Chrome.app)" \
-  "$(dock_item /Applications/Cisco/Cisco\ AnyConnect\ Secure\ Mobility\ Client.app)" \
   "$(dock_item /Applications/iTerm.app)" \
   "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
   "$(dock_item /Applications/Docker.app)" \
   "$(dock_item /Applications/Postman.app)" \
+  "$(dock_item /Applications/Lens.app)" \
   "$(dock_item /Applications/Slack.app)" \
   "$(dock_item /Applications/Microsoft\ Outlook.app)" \
   "$(dock_item /Applications/Microsoft\ Teams.app)" \
