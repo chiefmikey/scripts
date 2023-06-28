@@ -41,6 +41,7 @@ else
     "$(dock_item /Applications/Brave\ Browser.app)" \
     "$(dock_item /Applications/Google\ Chrome.app)" \
     "$(dock_item /System/Applications/Messages.app)" \
+    "$(dock_item /Applications/Discord.app)" \
     "$(dock_item /Applications/Spotify.app)" \
     "$(dock_item /System/Applications/Music.app)" \
     "$(dock_item /Applications/Apogee\ Control.app)" \
