@@ -3,8 +3,8 @@
 echo "+ brew livecheck"
 cd "${HOME}" || exit
 
-FLAG_LIST="baloskdrft"
-while getopts 'baloskdrft:' OPTION; do
+FLAG_LIST="baloskdrfqt"
+while getopts 'baloskdrfqt:' OPTION; do
   case ${OPTION} in
     b)
       LC_BUMP="-b"
@@ -36,6 +36,9 @@ while getopts 'baloskdrft:' OPTION; do
     f)
       FORMAT_LOGS="y"
       ;;
+    q)
+      QUIET="-q"
+      ;;
     t)
       LC_DELAY="-t ${OPTARG}"
       echo + "delay: ${OPTARG} seconds"
@@ -52,7 +55,7 @@ while getopts 'baloskdrft:' OPTION; do
 done
 shift "$((OPTIND-1))"
 
-[ "${RESET_GIT}" = "y" ] && "${SCRIPT_DIR}"/brew/reset/brew-reset.sh
+[ "${RESET_GIT}" = "y" ] && "${SCRIPT_DIR}"/brew/reset/brew-reset.sh "${QUIET}"
 
 LOG_DIR="${SCRIPT_DIR}/brew/livecheck/log"
 LOG_LOG="${LOG_DIR}/brew-livecheck-log.log"
