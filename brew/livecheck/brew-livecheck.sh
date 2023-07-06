@@ -31,7 +31,7 @@ while getopts 'baloskdrft:' OPTION; do
       echo + "detached: livecheck"
       ;;
     r)
-      RESUME_SCREEN="y"
+      RESET_GIT="y"
       ;;
     f)
       FORMAT_LOGS="y"
@@ -51,6 +51,8 @@ while getopts 'baloskdrft:' OPTION; do
   esac
 done
 shift "$((OPTIND-1))"
+
+[ "${RESET_GIT}" = "y" ] && "${SCRIPT_DIR}"/brew/reset/brew-reset.sh
 
 LOG_DIR="${SCRIPT_DIR}/brew/livecheck/log"
 LOG_LOG="${LOG_DIR}/brew-livecheck-log.log"
@@ -120,7 +122,7 @@ brew_livecheck () {
 if [ -n "${LC_RUNNING}" ]; then
   echo "livecheck is already running"
   echo "kill livecheck: (y/n)"
-  read LC_REPLACE
+  read -r LC_REPLACE
   if [ "${LC_REPLACE}" = "y" ] || [ "${LC_REPLACE}" = "yes" ]; then
     "${SCRIPT_DIR}"/brew/livecheck/brew-livecheck-kill.sh
     brew_livecheck
@@ -131,3 +133,7 @@ if [ -n "${LC_RUNNING}" ]; then
 else
   brew_livecheck
 fi
+
+# it would be cool to be able to pass an argument that limits how many PRs are opened by run or in a day (continuous run)
+
+# add flag to run reset on run
