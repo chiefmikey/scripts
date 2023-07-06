@@ -1,9 +1,9 @@
 #! /bin/bash
 
-while getopts 's' OPTION; do
+while getopts 'q' OPTION; do
   case ${OPTION} in
-    s)
-      SILENT="y"
+    q)
+      QUIET="y"
       ;;
     *)
       BAD_FLAGS=
@@ -25,8 +25,8 @@ ALL_TAPS="${BREW_CASK} ${BREW_CORE} ${CASK_VERSIONS} ${LINUXBREW_FONTS} ${CASK_F
 
 # reset all taps to git master
 for tap in ${ALL_TAPS}; do
-  [ "${SILENT}" != "y" ] && echo "+ resetting ${tap} to git master"
-  git -C "$(brew --repo "${tap}")" reset --hard origin/master
+  [ "${QUIET}" != "y" ] && echo "+ resetting ${tap} to git master"
+  git -C "$(brew --repo "${tap}")" reset --hard origin/master --quiet
 done
 
 # list all available brew taps including core and cask
