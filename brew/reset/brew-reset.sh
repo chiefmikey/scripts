@@ -23,7 +23,7 @@ BREW_CASK=homebrew/cask
 BREW_CORE=homebrew/core
 ALL_TAPS="${BREW_CASK} ${BREW_CORE} ${CASK_VERSIONS} ${LINUXBREW_FONTS} ${CASK_FONTS}"
 
-# reset all taps to git master
+echo + reset taps to master
 for tap in ${ALL_TAPS}; do
   [ "${QUIET}" != "y" ] && echo "+ resetting ${tap} to git master"
   git -C "$(brew --repo "${tap}")" reset --hard origin/master --quiet
