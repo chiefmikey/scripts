@@ -1,16 +1,17 @@
 #!/bin/sh
 
+# need to implement a check on this to see if it needs to be set or not. it errors out silently if it's already set.
 export SUDO_ASKPASS="${SCRIPT_DIR}/mac/sudo-askpass/mac-sudo-askpass.sh"
 
 cd "${HOME}" || exit
 
-echo "+ Brew Update"
+echo "+ brew update"
 brew update
 
-echo "+ Brew Upgrade"
+echo "+ brew upgrade"
 brew upgrade --greedy
 
-echo "+ Brew Cleanup"
+echo "+ brew cleanup"
 brew cleanup -s
 
 if [ "${1}" = "full" ]; then
