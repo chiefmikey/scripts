@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "+ npm Global Upgrade"
+echo "+ npm global upgrade"
 cd "${HOME}" || exit
 
 export STATUS=0
@@ -27,4 +27,4 @@ for package in $(npm ls -g --json | jq '.dependencies | keys' | awk -F'"' '{prin
   fi;
 done
 
-[ ${STATUS} -eq 0 ] && echo "Already up-to-date."
+[ ${STATUS} -eq 0 ] && echo "already up to date."

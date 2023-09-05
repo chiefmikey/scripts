@@ -9,6 +9,6 @@ if [ "$(pwd)" != "${ROOT}" ]; then
   if [ ! -d ${GIT} ]; then
     echo "${DIR}: $(git init)"
   else
-    echo "${DIR}: Already a git repository"
+    echo "${DIR}: already a git repository"
   fi
 fi
