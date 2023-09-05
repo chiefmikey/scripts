@@ -12,7 +12,7 @@ shift "$((OPTIND-1))"
 echo "+ Git Push"
 
 export DEFAULT_ROOT="${HOME}/dropbox/dev/scripts"
-source ${SCRIPT_DIR}/input-root/input-root.sh
+source "${SCRIPT_DIR}"/input-root/input-root.sh
 
 while [ -z "${DEPTH}" ]; do
   echo "Depth: ([integer], max)"
@@ -54,7 +54,7 @@ while
 [ "${SET_UPSTREAM}" != "yes" ] &&
 [ "${SET_UPSTREAM}" != "n" ] &&
 [ "${SET_UPSTREAM}" != "no" ]; do
-  echo "Set Upstream: (y/n)"
+  echo "set upstream: (y/n)"
   read SET_UPSTREAM
 done
 
@@ -88,9 +88,9 @@ export_vars () {
 if [ "${CONFIRM}" = "y" ] || [ "${CONFIRM}" = "yes" ]; then
   export_vars
   if [ "${RUN_DIRECTORY}" = "all" ]; then
-    find ${ROOT} -type d -name ".git"${DEPTH} -exec ${SCRIPT_DIR}/git-push/git-push-all.sh {} \;
+    find "${ROOT}" -type d -name ".git""${DEPTH}" -exec "${SCRIPT_DIR}"/git-push/git-push-all.sh {} \;
   fi
 else
-  echo "Operation cancelled"
+  echo "operation cancelled"
   exit 1
 fi

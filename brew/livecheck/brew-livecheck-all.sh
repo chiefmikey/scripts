@@ -91,6 +91,7 @@ package_counter () {
   COUNTER=0
   for cask in $("${SCRIPT_DIR}"/brew/search/brew-search.sh "${1}"); do
     COUNTER=$((${COUNTER} + 1))
+    # todo: use cask to build list of packages to reduce calls on line 143
   done
   echo "${COUNTER}"
 }
@@ -102,8 +103,7 @@ CURRENT_LOG=$(cat "${LOG}")
 CURRENT_TAP=${CURRENT_LOG%:*}
 CURRENT_COUNT=${CURRENT_LOG#*:}
 CASK_FONTS=homebrew/cask-fonts
-LINUXBREW_FONTS=linuxbrew/fonts
-CASK_DRIVERS=homebrew/cask-drivers
+LINUXBREW_FONTS=homebrew/linux-fonts
 CASK_VERSIONS=homebrew/cask-versions
 BREW_CASK=homebrew/cask
 BREW_CORE=homebrew/core
@@ -113,14 +113,18 @@ TYPE=
 TAP=
 PACKAGE=
 
+# print list of all installed taps
+# brew tap-info --json=v1 --installed | jq -r '.[] | .name'
+
 update_currents () {
   CURRENT_LOG=$(cat "${LOG}")
   CURRENT_TAP=${CURRENT_LOG%:*}
   CURRENT_COUNT=${CURRENT_LOG#*:}
+  [ -z "${CURRENT_COUNT}" ] && CURRENT_COUNT=0
 }
 
 write_date () {
-  echo $(TZ=:US/Mountain date +%m-%d-%y:%H-%M-%S)
+  TZ=:US/Mountain date +%m-%d-%y:%H-%M-%S
 }
 
 write_log () {
@@ -141,9 +145,10 @@ bump_runner () {
 
   for package in $("${SCRIPT_DIR}"/brew/search/brew-search.sh "${TAP}"); do
     PACKAGE=${package}
-    COUNTER=$((${COUNTER} + 1))
+    COUNTER=$((COUNTER + 1))
+    LAST_THREE=$((CURRENT_COUNT - 3))
 
-    if [[ ${COUNTER} -gt $((${CURRENT_COUNT} - 3)) ]] && [[ ! ${COUNTER} -gt ${CURRENT_COUNT} ]]; then
+    if [ "${COUNTER}" -gt "${LAST_THREE}" ] && [ ! "${COUNTER}" -gt "${CURRENT_COUNT}" ]; then
       echo "...${TAP}: ${COUNTER}/${TOTAL_COUNT}"
       echo "...${TYPE}: ${package}"
     fi
@@ -179,14 +184,16 @@ bump_runner () {
 LC_RUNNING=true
 LC_DONE=false
 while [ "${LC_RUNNING}" = "true" ] && [ "${LC_DONE}" = "false" ]; do
-  if [ -n "${CURRENT_LOG}" ]; then
-    [ "${CURRENT_TAP}" = "${BREW_CORE}" ] && bump_runner formula ${BREW_CORE} "${CURRENT_COUNT}" && CURRENT_TAP=${BREW_CASK}
-    [ "${CURRENT_TAP}" = "${BREW_CASK}" ] && bump_runner cask ${BREW_CASK} "${CURRENT_COUNT}" && CURRENT_TAP=${CASK_VERSIONS}
-    [ "${CURRENT_TAP}" = "${CASK_VERSIONS}" ] && bump_runner cask ${CASK_VERSIONS} "${CURRENT_COUNT}" && CURRENT_TAP=${CASK_DRIVERS}
-    [ "${CURRENT_TAP}" = "${CASK_DRIVERS}" ] && bump_runner cask ${CASK_DRIVERS} "${CURRENT_COUNT}" && CURRENT_TAP=${CASK_FONTS}
-    [ "${CURRENT_TAP}" = "${CASK_FONTS}" ] && bump_runner cask ${CASK_FONTS} "${CURRENT_COUNT}" && CURRENT_TAP=${LINUXBREW_FONTS}
-    [ "${CURRENT_TAP}" = "${LINUXBREW_FONTS}" ] && bump_runner formula ${LINUXBREW_FONTS} "${CURRENT_COUNT}" && CURRENT_TAP=${BREW_CORE}
-  else
-    bump_runner formula ${BREW_CORE} "${CURRENT_COUNT}" && CURRENT_TAP=${BREW_CASK}
-  fi
+    bump_runner cask ${BREW_CASK} "${CURRENT_COUNT}"
+    bump_runner cask ${CASK_VERSIONS} "${CURRENT_COUNT}"
+  # if [ -n "${CURRENT_LOG}" ]; then
+  #   [ "${CURRENT_TAP}" = "${BREW_CORE}" ] && bump_runner formula ${BREW_CORE} "${CURRENT_COUNT}" && CURRENT_TAP=${BREW_CASK}
+  #   [ "${CURRENT_TAP}" = "${BREW_CASK}" ] && bump_runner cask ${BREW_CASK} "${CURRENT_COUNT}" && CURRENT_TAP=${CASK_VERSIONS}
+  #   [ "${CURRENT_TAP}" = "${CASK_VERSIONS}" ] && bump_runner cask ${CASK_VERSIONS} "${CURRENT_COUNT}" && CURRENT_TAP=${CASK_DRIVERS}
+  #   [ "${CURRENT_TAP}" = "${CASK_DRIVERS}" ] && bump_runner cask "${CASK_DRIVERS}" "${CURRENT_COUNT}" && CURRENT_TAP=${CASK_FONTS}
+  #   [ "${CURRENT_TAP}" = "${CASK_FONTS}" ] && bump_runner cask ${CASK_FONTS} "${CURRENT_COUNT}" && CURRENT_TAP=${LINUXBREW_FONTS}
+  #   [ "${CURRENT_TAP}" = "${LINUXBREW_FONTS}" ] && bump_runner formula ${LINUXBREW_FONTS} "${CURRENT_COUNT}" && CURRENT_TAP=${BREW_CORE}
+  # else
+  #   bump_runner formula ${BREW_CORE} "${CURRENT_COUNT}" && CURRENT_TAP=${BREW_CASK}
+  # fi
 done

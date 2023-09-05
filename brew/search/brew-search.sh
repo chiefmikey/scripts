@@ -5,8 +5,8 @@ all_packages () {
 }
 
 COUNTER_ONE=0
-for rb in $(all_packages ${1}); do
-  echo ${rb##*/}
+for rb in $(all_packages "${1}"); do
+  echo "${rb##*/}"
   COUNTER_ONE=$((COUNTER_ONE+1))
 done
 
@@ -20,14 +20,6 @@ done
 
 # echo "homebrew/cask: ${COUNTER_TWO}"
 
-# COUNTER_THREE=0
-# for rb in $(all_packages homebrew/cask-drivers); do
-#   echo "${rb##*/}"
-#   COUNTER_THREE=$((COUNTER_THREE+1))
-# done
-
-# echo "homebrew/cask-drivers: ${COUNTER_THREE}"
-
 # COUNTER_FOUR=0
 # for rb in $(all_packages homebrew/cask-versions); do
 #   echo "${rb##*/}"
@@ -39,5 +31,4 @@ done
 # echo "Totals:"
 # echo "homebrew/core: ${COUNTER_ONE}"
 # echo "homebrew/cask: ${COUNTER_TWO}"
-# echo "homebrew/cask-drivers: ${COUNTER_THREE}"
 # echo "homebrew/cask-versions: ${COUNTER_FOUR}"
