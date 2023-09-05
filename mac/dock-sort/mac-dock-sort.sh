@@ -35,6 +35,7 @@ if [ "$(whoami)" = "mwolfe" ]; then
   "$(dock_item /Applications/Slack.app)" \
   "$(dock_item /Applications/Microsoft\ Outlook.app)" \
   "$(dock_item /Applications/Microsoft\ Teams.app)" \
+  "$(dock_item /Applications/Microsoft\ Teams\ \(work\ preview).app)" \
   "$(dock_item /Applications/Notion.app)"
 else
   defaults write com.apple.dock persistent-apps -array \
