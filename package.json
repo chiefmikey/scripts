@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A coffin full of custom scripts",
   "devDependencies": {
-    "mikey-pro": "^6.4.18"
+    "mikey-pro": "^6.5.9"
   },
   "homepage": "https://github.com/chiefmikey/tales-from-the-script#readme",
   "repository": {
