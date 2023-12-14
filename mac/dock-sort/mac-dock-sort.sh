@@ -23,20 +23,7 @@ dock_item() {
   ', "$1"
 }
 
-if [ "$(whoami)" = "mwolfe" ]; then
-  defaults write com.apple.dock persistent-apps -array \
-  "$(dock_item /Applications/Brave\ Browser.app)" \
-  "$(dock_item /Applications/Google\ Chrome.app)" \
-  "$(dock_item /Applications/iTerm.app)" \
-  "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
-  "$(dock_item /Applications/Docker.app)" \
-  "$(dock_item /Applications/Postman.app)" \
-  "$(dock_item /Applications/Lens.app)" \
-  "$(dock_item /Applications/Slack.app)" \
-  "$(dock_item /Applications/Microsoft\ Outlook.app)" \
-  "$(dock_item /Applications/Microsoft\ Teams\ \(work\ preview\).app)" \
-  "$(dock_item /Applications/Notion.app)"
-else
+if [ "$(whoami)" = "mikl" ]; then
   defaults write com.apple.dock persistent-apps -array \
     "$(dock_item /Applications/Brave\ Browser.app)" \
     "$(dock_item /Applications/Google\ Chrome.app)" \
@@ -59,6 +46,21 @@ else
     "$(dock_item /Applications/Docker.app)" \
     "$(dock_item /Applications/Postman.app)" \
     "$(dock_item /Applications/Parallels\ Desktop.app)" \
+    "$(dock_item /Applications/Notion.app)"
+else
+  defaults write com.apple.dock persistent-apps -array \
+    "$(dock_item /Applications/Brave\ Browser.app)" \
+    "$(dock_item /Applications/Google\ Chrome.app)" \
+    "$(dock_item /Applications/Google\ Chrome\ Canary.app)" \
+    "$(dock_item /System/Applications/Messages.app)" \
+    "$(dock_item /Applications/Discord.app)" \
+    "$(dock_item /Applications/Spotify.app)" \
+    "$(dock_item /System/Applications/Music.app)" \
+    "$(dock_item /System/Applications/Photos.app)" \
+    "$(dock_item /Applications/iTerm.app)" \
+    "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
+    "$(dock_item /Applications/Visual\ Studio\ Code\ -\ Insiders.app)" \
+    "$(dock_item /Applications/Postman.app)" \
     "$(dock_item /Applications/Notion.app)"
 fi
 
