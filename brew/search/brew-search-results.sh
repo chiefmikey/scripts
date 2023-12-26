@@ -1,11 +1,10 @@
 #!/bin/sh
 
-CASK_FONTS=homebrew/cask-fonts
-LINUXBREW_FONTS=homebrew/linux-fonts
-CASK_VERSIONS=homebrew/cask-versions
-BREW_CASK=homebrew/cask
 BREW_CORE=homebrew/core
-ALL_TAPS="${BREW_CASK} ${BREW_CORE} ${CASK_VERSIONS} ${LINUXBREW_FONTS} ${CASK_FONTS}"
+BREW_CASK=homebrew/cask
+CASK_VERSIONS=homebrew/cask-versions
+CASK_FONTS=homebrew/cask-fonts
+ALL_TAPS="${BREW_CORE} ${BREW_CASK} ${CASK_VERSIONS} ${CASK_FONTS}"
 
 package_counter () {
   COUNTER=0
