@@ -134,6 +134,18 @@ clear_log () {
   :> "${LOG}"
 }
 
+in_array() {
+  local needle=$1
+  shift
+  local haystack=("$@")
+  for item in "${haystack[@]}"; do
+    if [[ $item == $needle ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
 bump_runner () {
   update_currents
   TYPE=${1}
@@ -142,12 +154,18 @@ bump_runner () {
   TOTAL_COUNT=$(package_counter "${TAP}")
   echo "${2}: ${TOTAL_COUNT} ${TYPE}s"
 
+  # Read the blocklist into an array
+  IFS=$'\n' read -d '' -r -a blocklist < /Users/mikl/Library/CloudStorage/Dropbox/dev/tales-from-the-script/brew/livecheck/log/brew-livecheck-blocklist.txt
+
   for package in $("${SCRIPT_DIR}"/brew/search/brew-search.sh "${TAP}"); do
     PACKAGE=${package}
-    if [[ "${PACKAGE}" == fabfilter* ]]; then
+
+    # Skip the package if it's in the blocklist
+    if in_array "${PACKAGE}" "${blocklist[@]}"; then
       echo "+ skipping ${PACKAGE}"
       continue
     fi
+
     COUNTER=$((COUNTER + 1))
     LAST_THREE=$((CURRENT_COUNT - 3))
 
