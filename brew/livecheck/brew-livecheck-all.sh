@@ -139,7 +139,7 @@ in_array() {
   shift
   local haystack=("$@")
   for item in "${haystack[@]}"; do
-    if [[ $item == $needle ]]; then
+    if [[ $needle == $item* ]]; then
       return 0
     fi
   done
@@ -160,7 +160,7 @@ bump_runner () {
   for package in $("${SCRIPT_DIR}"/brew/search/brew-search.sh "${TAP}"); do
     PACKAGE=${package}
 
-    # Skip the package if it's in the blocklist
+    # Skip the package if it starts with any name in the blocklist
     if in_array "${PACKAGE}" "${blocklist[@]}"; then
       echo "+ skipping ${PACKAGE}"
       continue
