@@ -145,6 +145,7 @@ bump_runner () {
   for package in $("${SCRIPT_DIR}"/brew/search/brew-search.sh "${TAP}"); do
     PACKAGE=${package}
     if [[ "${PACKAGE}" == fabfilter* ]]; then
+      echo "+ skipping ${PACKAGE}"
       continue
     fi
     COUNTER=$((COUNTER + 1))
