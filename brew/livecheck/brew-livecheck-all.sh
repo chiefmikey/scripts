@@ -144,6 +144,9 @@ bump_runner () {
 
   for package in $("${SCRIPT_DIR}"/brew/search/brew-search.sh "${TAP}"); do
     PACKAGE=${package}
+    if [[ "${PACKAGE}" == fabfilter* ]]; then
+      continue
+    fi
     COUNTER=$((COUNTER + 1))
     LAST_THREE=$((CURRENT_COUNT - 3))
 
@@ -192,3 +195,4 @@ while [ "${LC_RUNNING}" = "true" ] && [ "${LC_DONE}" = "false" ]; do
     bump_runner formula ${BREW_CORE} "${CURRENT_COUNT}" && CURRENT_TAP=${BREW_CASK}
   fi
 done
+
