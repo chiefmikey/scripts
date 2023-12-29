@@ -160,12 +160,6 @@ bump_runner () {
   for package in $("${SCRIPT_DIR}"/brew/search/brew-search.sh "${TAP}"); do
     PACKAGE=${package}
 
-    # Skip the package if it starts with any name in the blocklist
-    if in_array "${PACKAGE}" "${blocklist[@]}"; then
-      echo "+ skipping ${PACKAGE}"
-      continue
-    fi
-
     COUNTER=$((COUNTER + 1))
     LAST_THREE=$((CURRENT_COUNT - 3))
 
@@ -188,8 +182,13 @@ bump_runner () {
       echo "${TAP}: ${COUNTER}/${TOTAL_COUNT}"
       echo "${TYPE}: ${PACKAGE}"
 
-      [ "${TYPE}" = "formula" ] && bump_formula "${PACKAGE}"
-      [ "${TYPE}" = "cask" ] && bump_cask "${PACKAGE}"
+      # Skip the package if it starts with any name in the blocklist
+      if in_array "${PACKAGE}" "${blocklist[@]}"; then
+        echo "+ skipping ${PACKAGE}"
+      else
+        [ "${TYPE}" = "formula" ] && bump_formula "${PACKAGE}"
+        [ "${TYPE}" = "cask" ] && bump_cask "${PACKAGE}"
+      fi
 
       echo "${TAP}:${COUNTER}" > "${LOG}"
       write_log >> "${HISTORY_LOG}"
