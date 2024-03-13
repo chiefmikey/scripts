@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 CONTAINER_ALREADY_STARTED="CONTAINER_ALREADY_STARTED_PLACEHOLDER"
 if [ ! -e $CONTAINER_ALREADY_STARTED ]; then
@@ -33,7 +33,7 @@ touch $CONTAINER_ALREADY_STARTED
     wget -O /home/node/Python-3.9.13.tar.gz https://www.python.org/ftp/python/3.9.13/Python-3.9.13.tgz
     tar -xvzf /home/node/Python-3.9.13.tar.gz -C /home/node
     rm /home/node/Python-3.9.13.tar.gz
-    
+
     cd /home/node/Python-3.9.13
     /home/node/Python-3.9.13/configure --enable-optimizations
     make

@@ -1,4 +1,4 @@
-#!/bin/sh -v
+#!/bin/bash -v
 
 set -x
 cd /home/ec2-user

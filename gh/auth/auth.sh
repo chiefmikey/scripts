@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 awsRegion="us-east-2"
 awsSecretId="gh-sudo"

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export USER
 export REPO

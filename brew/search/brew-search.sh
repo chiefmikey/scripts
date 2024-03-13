@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 all_packages () {
   brew tap-info --json "$@" | jq -r '.[]|(.formula_names[],.cask_tokens[])' | sort -V

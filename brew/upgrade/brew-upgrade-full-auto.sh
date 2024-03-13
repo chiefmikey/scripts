@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export SUDO_ASKPASS="${SCRIPT_DIR}"/mac/sudo-askpass/mac-sudo-askpass.sh
 

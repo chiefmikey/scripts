@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 gh ssh-key add [<key-file>] [flags]
 Options

@@ -1,4 +1,4 @@
-#!/bin/sh -v
+#!/bin/bash -v
 
 set -x
 brew update && brew upgrade && brew cleanup

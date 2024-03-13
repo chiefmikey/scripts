@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # implement script to update the date in package licenses
 # search root directories for LICENSE files

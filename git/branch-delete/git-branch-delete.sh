@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # deletes from remote? not sure
 

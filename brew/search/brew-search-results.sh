@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BREW_CORE=homebrew/core
 BREW_CASK=homebrew/cask

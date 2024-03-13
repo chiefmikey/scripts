@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "+ npm global upgrade"
 cd "${HOME}" || exit

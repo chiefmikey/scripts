@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # need to implement a check on this to see if it needs to be set or not. it errors out silently if it's already set.
 export SUDO_ASKPASS="${SCRIPT_DIR}/mac/sudo-askpass/mac-sudo-askpass.sh"

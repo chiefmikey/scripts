@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 while
 [ "${STASH_IT}" != "y" ] &&
@@ -14,7 +14,7 @@ if [ "$STASH_IT" = "y" ] || [ "$STASH_IT" = "yes" ] ; then
   git checkout "${@:1}"
 fi
 
-#!/bin/sh
+#!/bin/bash
 
 while
 [ "${POP_IT}" != "y" ] &&

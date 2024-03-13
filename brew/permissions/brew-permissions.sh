@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BREW_DIR="$(brew --prefix)/Cellar/*"
 

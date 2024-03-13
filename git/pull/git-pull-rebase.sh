@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cd "${1}"/.. || exit
 DIR_NAME=$(pwd | awk -F/ '{print $NF}')

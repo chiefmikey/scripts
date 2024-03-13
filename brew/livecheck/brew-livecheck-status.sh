@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 LC_STATUS=$(screen -ls | grep livecheck | awk '{print $1}')
 

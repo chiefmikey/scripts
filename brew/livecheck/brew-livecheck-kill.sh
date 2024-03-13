@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 LIVECHECK_ID=$(screen -ls | grep livecheck | awk '{print $1}')
 

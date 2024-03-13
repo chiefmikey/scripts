@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ ! -d "./modules" ]; then mkdir "./modules"; fi
 if [ -f "./modules/script-manager.sh" ]; then
