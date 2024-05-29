@@ -51,7 +51,6 @@ if [ "$(hostname)" = "QHQH24WCXG-mikl" ]; then
     "$(dock_item /Applications/iTerm.app)" \
     "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
     "$(dock_item /Applications/Visual\ Studio.app)" \
-    "$(dock_item /Applications/Docker.app)" \
     "$(dock_item /Applications/Postman.app)" \
     "$(dock_item /Applications/Parallels\ Desktop.app)" \
     "$(dock_item /Applications/Notion.app)" \
