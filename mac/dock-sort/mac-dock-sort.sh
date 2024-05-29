@@ -40,10 +40,8 @@ if [ "$(whoami)" = "mikl" ]; then
     "$(dock_item /System/Applications/Photos.app)" \
     "$(dock_item /Applications/iTerm.app)" \
     "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
-    "$(dock_item /Applications/Docker.app)" \
-    "$(dock_item /Applications/Postman.app)" \
-    "$(dock_item /Applications/Parallels\ Desktop.app)" \
-    "$(dock_item /Applications/Notion.app)"
+    "$(dock_item /Applications/Notion.app)" \
+    "$(dock_item /Applications/ChatGPT.app)"
 else
   defaults write com.apple.dock persistent-apps -array \
     "$(dock_item /Applications/Brave\ Browser.app)" \
@@ -57,7 +55,8 @@ else
     "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
     "$(dock_item /Applications/Visual\ Studio\ Code\ -\ Insiders.app)" \
     "$(dock_item /Applications/Postman.app)" \
-    "$(dock_item /Applications/Notion.app)"
+    "$(dock_item /Applications/Notion.app)" \
+    "$(dock_item /Applications/ChatGPT.app)"
 fi
 
 killall Dock
