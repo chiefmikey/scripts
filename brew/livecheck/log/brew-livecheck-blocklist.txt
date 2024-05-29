@@ -3,3 +3,5 @@ uffizzi
 mahout
 math-comp
 openclonk
+cucumber-cpp
+vulkan

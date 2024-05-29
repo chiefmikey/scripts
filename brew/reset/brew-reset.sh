@@ -16,8 +16,6 @@ while getopts 'q' OPTION; do
   esac
 done
 
-BREW_CORE=homebrew/core
-BREW_CASK=homebrew/cask
 CASK_VERSIONS=homebrew/cask-versions
 ALL_TAPS="${BREW_CORE} ${BREW_CASK} ${CASK_VERSIONS}"
 
