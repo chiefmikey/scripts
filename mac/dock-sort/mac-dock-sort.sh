@@ -23,7 +23,7 @@ dock_item() {
   ', "$1"
 }
 
-if [ "$(hostname)" = "mikl" ]; then
+if [ "$(hostname)" = "mikmac" ]; then
   defaults write com.apple.dock persistent-apps -array \
     "$(dock_item /Applications/Brave\ Browser.app)" \
     "$(dock_item /Applications/Google\ Chrome.app)" \
@@ -42,9 +42,7 @@ if [ "$(hostname)" = "mikl" ]; then
     "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
     "$(dock_item /Applications/Notion.app)" \
     "$(dock_item /Applications/ChatGPT.app)"
-fi
-
-if [ "$(hostname)" = "QHQH24WCXG-mikl" ]; then
+elif [ "$(hostname)" = "QHQH24WCXG-mikl" ]; then
   defaults write com.apple.dock persistent-apps -array \
     "$(dock_item /Applications/Google\ Chrome.app)" \
     "$(dock_item /Applications/Google\ Chrome\ Canary.app)" \
@@ -58,5 +56,6 @@ if [ "$(hostname)" = "QHQH24WCXG-mikl" ]; then
     "$(dock_item /Applications/zoom\.us.app)" \
     "$(dock_item /Applications/Slack.app)" \
     "$(dock_item /Applications/ChatGPT.app)"
-  killall Dock
 fi
+
+killall Dock
