@@ -40,6 +40,7 @@ if [ "$(hostname)" = "mikmac" ]; then
     "$(dock_item /System/Applications/Photos.app)" \
     "$(dock_item /Applications/iTerm.app)" \
     "$(dock_item /Applications/Visual\ Studio\ Code.app)" \
+    "$(dock_item /Applications/Parallels\ Desktop.app)" \
     "$(dock_item /Applications/Notion.app)" \
     "$(dock_item /Applications/ChatGPT.app)"
 elif [ "$(hostname)" = "QHQH24WCXG-mikl" ]; then
