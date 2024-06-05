@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -n "${1##*node_modules*node_modules*}" ]; then
   echo "${1}"
