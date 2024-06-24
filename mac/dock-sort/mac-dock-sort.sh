@@ -34,7 +34,7 @@ if [ "$(hostname)" = "mikmac" ]; then
     "$(dock_item /Applications/Logic\ Pro\ X.app)" \
     "$(dock_item /Applications/Reason\ Suite\ 11.app)" \
     "$(dock_item /Applications/Final\ Cut\ Pro.app)" \
-    "$(dock_item /Applications/Apple\ Motion.app)" \
+    "$(dock_item /Applications/Motion.app)" \
     "$(dock_item /Applications/Affinity\ Photo\ 2.app)" \
     "$(dock_item /Applications/Affinity\ Designer\ 2.app)" \
     "$(dock_item /System/Applications/Photos.app)" \
